@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+}
+
+body,html {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    height: 100svh;
+    background-color: #121212;
+    color: grey;  /*will change*/
+}
+.container {
+    display: flex;
+    background-color: #212121;
+    border-radius: 15px;
+    width: auto;
+    height: 100%;
+}
+
+.info_section {
+    display: none;
+}
+
+.login_section {
+    display: flex;
+    width: 100%;
+}
+
+.form_form {
+    height: 100%;
+    position: relative;
+    padding: 5em 2em 0 2em;
+    width: 100%;
+    align-self: center;
+}
+
+.form_footer {
+    font-size: 12px;
+    text-align: center;
+    padding-bottom: 1em;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.form_username {
+    margin-top: 5em;
+    margin-bottom: 5em;
+}
+
+.form_username:focus {
+    border-bottom: 2px solid #226de5;
+}
+
+.form_password:focus {
+    border-bottom: 2px solid #226de5;
+}
+
+.form_submit {
+    color: white;
+    margin-top: 2em;
+    padding: 1em 0;
+}
+
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    width: 100%;
+    display: block;
+    border: none;
+    border-bottom: 2px solid grey;
+    outline: none;
+    background-color: #212121;
+    padding: 1em;
+    margin: 2em 0;
+    color: grey;
+}
+
+button {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: #226de5;
+}
+
+/* LAPTOPS */
+
+@media only screen and (min-width: 992px) {
+    .info_section {
+        display: block;
+        padding: 6px;
+    }
+
+    .info_text {
+        background-color: #226de5;
+        height: 100%;
+        color: white;
+        border-radius: 15px;
+    }
+
+    main {
+        padding: 5em 10em;
+    }
+}
