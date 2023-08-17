@@ -40,11 +40,7 @@ main {
 .form_footer {
     font-size: 12px;
     text-align: center;
-    padding-bottom: 1em;
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 0;
+    padding-top: 1em;
 }
 
 .form_username {
@@ -94,17 +90,37 @@ button {
 @media only screen and (min-width: 992px) {
     .info_section {
         display: block;
-        padding: 6px;
+        padding: 8px;
+        flex: 2;
+    }
+
+    .login_section {
+        flex: 1.5;
     }
 
     .info_text {
+        text-align: center;
         background-color: #226de5;
         height: 100%;
         color: white;
         border-radius: 15px;
+        padding: 4em 4em 0.5em 4em;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .info_text h1 {
+        padding: 1.5em 0;
+        font-size: 32px;
+    }
+
+    .info_text footer {
+        margin-top: auto;
+        text-align: center;
+        font-size: 12px;
     }
 
     main {
-        padding: 5em 10em;
+        padding: 5em 12em;
     }
 }
