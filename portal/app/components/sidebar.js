@@ -1,53 +1,63 @@
-import Link from "next/link"
-import {BiHome, BiSolidCarMechanic} from "react-icons/bi"
-import {BsCurrencyDollar, BsShieldCheck} from "react-icons/bs"
+import NavLink from "next/link"
+import {BiMenu, BiSolidCarMechanic} from "react-icons/bi"
+import {BsCurrencyDollar, BsGrid, BsShieldCheck} from "react-icons/bs"
 import {FaUserShield} from "react-icons/fa"
 import "./sidebar.css"
 const Sidebar = async () => {
     return (
-        <div className="container">
-            <div className="sidebar_brand">
-                <h3>Raptas</h3>
-            </div>
-            <div className="sidebar_category">
-                General
-            </div>
-            <ul>
-                <li>
-                    <Link href="" className="nav-item">
-                        <span className="icon"><BiHome/></span>
-                        <span className="item">Home</span>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="" className="nav-item">
-                        <span className="icon"><BiSolidCarMechanic/></span>
-                        <span className="item">Jobs</span>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="" className="nav-item">
-                        <span className="icon"><BsShieldCheck/></span>
-                        <span className="item">Warranties</span>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="" className="nav-item">
-                        <span className="icon"><BsCurrencyDollar/></span>
-                        <span className="item">Expenses</span>
-                    </Link>
-                </li>
-                <div className="sidebar_category">
-                Admin
-                </div>
-                <li>
-                    <Link href="" className="nav-item">
-                        <span className="icon"><FaUserShield/></span>
-                        <span className="item">Admin</span>
-                    </Link>
-                </li>
-            </ul>
+        <div className="sidebar">
+        <div className="logo-details">
+          <i className='bx bxl-c-plus-plus icon'></i>
+            <div className="logo_name">CodingLab</div>
+            <i className='bx' id="btn" ><BiMenu/></i>
         </div>
+        <ul className="nav-list">
+          <li>
+            <NavLink href="#">
+              <i className='bx'><BsGrid/></i>
+              <span className="links_name">Dashboard</span>
+            </NavLink>
+             <span className="tooltip">Dashboard</span>
+          </li>
+          <li>
+           <a href="#">
+             <i className='bx'><BiSolidCarMechanic/></i>
+             <span className="links_name">Jobs</span>
+           </a>
+           <span className="tooltip">Jobs</span>
+         </li>
+         <li>
+           <a href="#">
+             <i className='bx'><BsShieldCheck/></i>
+             <span className="links_name">Warranties</span>
+           </a>
+           <span className="tooltip">Warranties</span>
+         </li>
+         <li>
+           <a href="#">
+             <i className='bx'><BsCurrencyDollar/></i>
+             <span className="links_name">Expenses</span>
+           </a>
+           <span className="tooltip">Expenses</span>
+         </li>
+         <li>
+           <a href="#">
+             <i className='bx bx-cog' ></i>
+             <span className="links_name">Setting</span>
+           </a>
+           <span className="tooltip">Setting</span>
+         </li>
+         <li className="profile">
+             <div className="profile-details">
+               <div className="name_job">
+                 <div className="name">Prem Shahi</div>
+                 <div className="job">Web designer</div>
+               </div>
+             </div>
+             <i className='bx bx-log-out' id="log_out" ></i>
+         </li>
+        </ul>
+      </div>
     )
 }
 

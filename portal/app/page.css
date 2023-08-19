@@ -1,0 +1,10 @@
+.main_container {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 100svh;
+}
+
+.sidebar {
+    grid-column: 1/2;
+}
