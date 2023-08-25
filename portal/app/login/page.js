@@ -1,6 +1,16 @@
+"use client";
 import "./page.css";
+import {useState} from "react"
 
 const Login = () => {
+
+    const[user, setUser] = useState({username: "", password: ""});
+
+    const handleChange = (e) => {
+        const {name, value} = event.target;
+        setUser({...user, [name]: value});
+        console.log(user)
+    }
     return (
         <main>
             <div className="container">
@@ -15,8 +25,8 @@ const Login = () => {
                 <section className="login_section">
                     <form className="form_form">
                         <h1 className="form_header">Hello!<br/>Welcome back,</h1>
-                        <input className="form_username" type="text" placeholder="USERNAME"/>
-                        <input className="form_password" type="password" placeholder="PASSWORD"/>
+                        <input className="form_username" name="username" onChange={handleChange} type="text" placeholder="USERNAME"/>
+                        <input className="form_password" name="password" onChange={handleChange} type="password" placeholder="PASSWORD"/>
                         <button className="form_submit" type="submit">Login</button>
                         <p className="form_footer">New User? Contact an Administrator!</p>
                     </form>

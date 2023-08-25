@@ -5,9 +5,6 @@ export default function Home() {
   return (
     <main>
       <div className="main_container">
-        <div className="header">
-
-        </div>
         <div className="sidebar">
           <Sidebar/>
         </div>
