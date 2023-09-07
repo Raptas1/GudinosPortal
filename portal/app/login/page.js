@@ -1,5 +1,6 @@
 "use client";
 import "./page.css";
+import axios from "axios"
 import {PiWarningFill} from "react-icons/pi"
 import {useState} from "react"
 
@@ -15,9 +16,13 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if(user.username || user.password == null) {
+        if(user.username == null || user.password == null) {
             setError(true)
         }
+        axios.post("http://localhost:3001/login")
+        .then((response) => {
+            console.log(response);
+        })
     }
     return (
         <main>
