@@ -3,6 +3,7 @@ const express = require("express");
 const {PortalDAO} = require('./app/database/PortalDAO')
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
+const passport = require("passport");
 const cookieParser = require("cookie-parser");
 const sessions = require('express-session');
 
@@ -10,6 +11,7 @@ const app = express();
 const port = "3001";
 
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true}));
 app.use(cookieParser());
 
 app.use(sessions({
@@ -18,10 +20,32 @@ app.use(sessions({
     cookie: { maxAge: 1000 * 60 * 60 * 24 },
     resave: false 
 }));
+app.use(passport.session());
+
+passport.serializeUser((user, cb) => {
+    process.nextTick(() => {
+      return cb(null, {
+        id: user.id,
+        username: user.username,
+        role: user.userRole
+      });
+    });
+  });
+
+  
+  passport.deserializeUser((user, cb) => {
+    process.nextTick(() => {
+      return cb(null, user);
+    });
+  });
 
 const dao = new PortalDAO();
 
-app.post("/login", (req, res) => {
+app.get("/authenticated", (req, res) => {
+
+})
+
+app.post("/login", (req, res, next) => {
     try {
         dao.getUser(req.body.username, async (error, user) => {
             if(error) {
@@ -29,13 +53,10 @@ app.post("/login", (req, res) => {
             }
             if(user) {
                 const loginResponse = await bcrypt.compare(req.body.password, user.password)
-                console.log(loginResponse);
                 if(loginResponse == false) {
                     return res.status(401).send("Invalid Username or Password");
                 }
-                let session = req.session
-                session.id = user.id;
-                console.log(req)
+
                 return res.status(200).send("Authenticated");
             }
             return res.status(401).send("Invalid Username or Password");
