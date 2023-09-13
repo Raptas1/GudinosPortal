@@ -33,22 +33,10 @@ const Login = () => {
         })
         .catch((error) => {
             if(error.response) {
-                if(error.response.status == 401) {
                     setError({
                         status:true,
-                        message:"Invalid username or password."
+                        message: error.response.data
                     })
-                } else if(error.response.status == 500) {
-                    setError({
-                        status:true,
-                        message:"An internal error has occurred."
-                    })
-                }
-            } else {
-                setError({
-                    status:true,
-                    message:"An internal error has occurred."
-                })
             }
         })
     }
